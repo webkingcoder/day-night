@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-image: linear-gradient(#111435 ,#3751e0);
+    background-attachment: fixed;
+
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#111435 ,#3751e0);
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.forest{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    margin: auto;
+    transition: 1s;
+}
+.moon{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transition: 0.5s;
+    z-index: 100000;
+}
+.moon::before{  
+    content: '';
+    background-image: linear-gradient(#111435 ,#3751e0);
+    background-attachment: fixed;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
+    top: -15px;
+    left: 15px;
+    z-index: 1;
+}
+.container i{
+    background-color: #fff;
+    position: absolute;
+    z-index: 1;
+    animation: animate linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10% , 90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+.container.active{
+    background-image: linear-gradient(#EC9F05 , #FF4E00,#ffff);
+    
+}
+.container.active .moon::before{
+    display: none;
+    /* background-image: linear-gradient(red ,yellow); */
+}
+.container.active i{
+    display: none;
+}
+.container.active .moon{
+    left: 200px;
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.7),
+                0 0 0 40px rgba(255, 255, 255, 0.5),
+                0 0 0 80px rgba(255, 255, 255, 0.4),
+                0 0 0 100px rgba(255, 255, 255, 0.3);
+}
+.container.active .forest{
+    position: absolute;
+    transform: translateY(400px);
+}
+.bgimg{
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    transform: translateY(600px);
+    transition: 1s;
+    z-index: 5;
+}
+.container.active .bgimg{
+    transform: translateY(0px);
+}
+.river{
+    width: 100%;
+    height: 20vh;
+    transition: 1s;
+    position:absolute;
+    bottom: 0;
+    transform: translateY(20vh);
+    background-image:linear-gradient( #6dd5ed ,#2193b0);
+}
+.container.active .river{
+    transform: translateY(0vh);
+}
+.cloud1{
+    max-width: 500px;
+    position: absolute;
+    top: 100px;
+    left: 110px;
+    z-index: 100000000;
+    animation: cloudanim 15s linear infinite;    
+}
+
+.cloud2{
+    max-width: 300px;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    animation: cloudanim 20s linear infinite;    
+    z-index: 100000000;
+    transition: 5s;
+}
+.cloud3{
+    max-width: 400px;
+    position: absolute;
+    top: 0;
+    left: 200px;
+    animation: cloudanim 30s linear infinite;    
+    transition: 5s;
+    z-index: 100000000;
+}
+.cloud4{
+    max-width: 200px;
+    position: absolute;
+    top: 40px;
+    left: 300px;
+    z-index: 100000000;
+    animation: cloudanim 40s linear infinite;    
+    transition: 5s;
+}
+.cloud5{
+    max-width: 100px;
+    position: absolute;
+    top:90px;
+    left:400px;
+    animation: cloudanim 30s linear infinite;    
+    transition: 5s;
+    z-index: 100000000;
+}
+.cloud6{
+    max-width: 500px;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    animation: cloudanim 20s linear infinite;    
+    z-index: 100000000;
+    transition: 5s;
+}
+@keyframes cloudanim{
+    0%{
+        opacity: 0.5;
+    }
+    10% , 90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+.container.active .cloud{
+    display: none;
+}

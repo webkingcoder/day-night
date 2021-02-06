@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day/Night</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="moon" onclick="day()"></div>
+        <img class="forest" src="./forest.png" alt="">
+        <img class="cloud1 cloud" src="./cloud1.png" alt="">
+        <img class="cloud2 cloud" src="./cloud2.png" alt="">
+        <img class="cloud3 cloud" src="./cloud3.png" alt="">
+        <img class="cloud4 cloud" src="./cloud1.png" alt="">
+        <img class="cloud5 cloud" src="./cloud2.png" alt="">
+        <img class="cloud6 cloud" src="./cloud3.png" alt="">
+        <img class="bgimg" src="./bg.png" alt="">
+        <div class="river"></div>
+    </div>
+    <script>
+        function star()
+        {
+        let i = 0;
+        let count = 500;
+        while (i<count) {
+            let star = document.createElement('i');
+            let x = Math.floor(Math.random()* window.innerWidth);
+            let y = Math.floor(Math.random() * window.innerHeight);
+            let size = Math.random() * 2;
+            let container = document.querySelector(".container");
+            let duration = Math.random()*10;
+
+            star.style.animationDuration = 5 + duration+'s'
+            star.style.animationDelay = duration +'s'
+            star.style.left = x +'px';
+            star.style.top = y +'px'
+            star.style.width = size +'px'
+            star.style.height = size +'px'
+            container.appendChild(star)
+            i++;
+        }
+    }
+    star();
+
+    function day(){
+        let container = document.querySelector(".container")
+        container.classList.toggle("active");
+    }
+
+    </script>
+</body>
+</html>
